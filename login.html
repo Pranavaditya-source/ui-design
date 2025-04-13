@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f2f5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background: rgba(39, 175, 206, 0.829);
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .login-container h2 {
+            margin: 0 0 20px;
+            text-align: center;
+            color: #333;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        .login-container .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .login-container button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .login-container .ok-btn {
+            background: #2d9507;
+            color: rgb(236, 229, 229);
+        }
+        .login-container .cancel-btn {
+            background: #dc3545;
+            color: rgb(238, 233, 233);
+        }
+        .login-container .ok-btn:hover {
+            background: #0056b3;
+        }
+        .login-container .cancel-btn:hover {
+            background: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <div class="buttons">
+            <button type="submit" class="ok-btn">OK</button>
+            <button type="button" class="cancel-btn" onclick="cancelLogin()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        if (email === "" || password === "") {
+            alert("Please enter both email and password.");
+            return;
+        }
+
+        // You can replace this with real authentication logic
+        alert("Logged in successfully!\nEmail: " + email);
+    });
+
+    function cancelLogin() {
+        document.getElementById('loginForm').reset();
+    }
+</script>
+
+</body>
+</html>
